@@ -1,0 +1,13 @@
+wget https://react.iftl.net/static/1/startup.js?1=1 startup.js;
+wget https://react.iftl.net/static/1/share.js?1=1 share.js;
+wget https://react.iftl.net/static/1/remoteexec.js?1=1 remoteexec.js;
+wget https://react.iftl.net/static/1/launcher.js?1=1 launcher.js;
+wget https://react.iftl.net/static/1/homedata.txt?1=2 homedata.txt;
+run startup.js
+
+
+run HTTPWorm.exe ; run BruteSSH.exe ; run SQLInject.exe ; run relaySMTP.exe ; run FTPCrack.exe ; run NUKE.exe ; scan-analyze 10;
+
+run HTTPWorm.exe ; run BruteSSH.exe ; run SQLInject.exe ; run relaySMTP.exe ; run FTPCrack.exe ; run NUKE.exe ; backdoor;
+
+run hackremote.js n00dles 38550 -t 38550

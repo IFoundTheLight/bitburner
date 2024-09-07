@@ -2,7 +2,8 @@
 export async function main(ns)
 {
   let remoteHost = ns.args[0];
-  
+  let maxThreads = ns.args[1];
+
   while(true)
   {
     let weakenTimeSeconds = await ns.getWeakenTime(remoteHost);
@@ -12,6 +13,7 @@ export async function main(ns)
     let differenceNeeded = currentSecurity - minimumSecurity;
     let threadsNeeded = 0;
     let threadDifference = 0;
+    let weakenAmount = 0;
 
     while(differenceNeeded > threadDifference)
     {
@@ -19,14 +21,26 @@ export async function main(ns)
       threadsNeeded++;
     }
 
-    // weaken message
-    await ns.tprint(`Weakening security on ${remoteHost}, weaken will take ${weakenTimeinTime}, threads needed ${threadsNeeded} [${minimumSecurity}, ${currentSecurity}, ${differenceNeeded}]`);
+    if (threadsNeeded > maxThreads)
+    {
+      // weaken message
+      await ns.print(`Weakening security on ${remoteHost}, weaken will take ${weakenTimeinTime}, threads needed ${maxThreads} [${minimumSecurity}, ${currentSecurity}, ${differenceNeeded}]`);
+
+      // weaken
+      weakenAmount = await ns.weaken(remoteHost, {threads: Number(maxThreads)});
+    }
+    else
+    {
+      // weaken message
+      await ns.print(`Weakening security on ${remoteHost}, weaken will take ${weakenTimeinTime}, threads needed ${threadsNeeded} [${minimumSecurity}, ${currentSecurity}, ${differenceNeeded}]`);
+
+      // weaken
+      weakenAmount = await ns.weaken(remoteHost, {threads: Number(threadsNeeded)});
+    }
+
 
     // weaken
-    let weakenAmount = await ns.weaken(remoteHost, {threads: Number(threadsNeeded)});
-
-    // weaken
-    await ns.tprint(`${remoteHost} weakened by ${ns.formatNumber(weakenAmount, 2, 1000, false)}`);
+    await ns.print(`${remoteHost} weakened by ${ns.formatNumber(weakenAmount, 2, 1000, false)}`);
   }
 }
   

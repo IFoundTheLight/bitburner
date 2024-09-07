@@ -9,6 +9,8 @@ export async function main(ns)
     let hackThreads = await ns.hackAnalyzeThreads(remoteHost, remoteHostMoney);
     let hackingTime = await ns.getHackTime(remoteHost);
 
+    hackThreads = Math.round(hackThreads);
+
     await ns.tprint(`Hacking ${remoteHost} with ${hackThreads} threads, should take ${getTime(hackingTime)}`);
     
     let moneygotten = await ns.hack(remoteHost, {threads: hackThreads});

@@ -14,5 +14,5 @@ export async function main(ns) {
   }
   
   // Save Servers List
-  await cacheModule.setCacheItem(ns, "Servers", JSON.stringify(serverList))
+  await cacheModule.setCacheItem(ns, "Servers", serverList);
 }

@@ -1,6 +1,6 @@
-const startupScript = "startup.js";
 /** @param {NS} ns */
-export async function main(ns) {
-  var RemoteHost = ns.args[0];
-  await ns.exec(startupScript, RemoteHost);
+export async function main(ns)
+{
+  var remoteHost = ns.args[0];
+  await ns.exec("startup.js", remoteHost);
 }

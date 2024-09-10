@@ -11,3 +11,16 @@ run HTTPWorm.exe ; run BruteSSH.exe ; run SQLInject.exe ; run relaySMTP.exe ; ru
 run HTTPWorm.exe ; run BruteSSH.exe ; run SQLInject.exe ; run relaySMTP.exe ; run FTPCrack.exe ; run NUKE.exe ; backdoor;
 
 run hackremote.js n00dles 38550 -t 38550
+
+
+
+
+run HTTPWorm.exe ; run BruteSSH.exe ; run SQLInject.exe ; run relaySMTP.exe ; run FTPCrack.exe ; run NUKE.exe ; scan-analyze 3;
+
+run hackremote.js n00dles 10000 -t 10000
+
+run HTTPWorm.exe ; run BruteSSH.exe ; run SQLInject.exe ; run relaySMTP.exe ; run FTPCrack.exe ; run NUKE.exe ; scan-analyze 3;
+
+
+
+run HTTPWorm.exe ; run BruteSSH.exe ; run SQLInject.exe ; run relaySMTP.exe ; run FTPCrack.exe ; run NUKE.exe ;
